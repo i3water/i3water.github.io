@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[减速机]]></title>
     <url>%2F2018%2F10%2F04%2F%E5%87%8F%E9%80%9F%E6%9C%BA%2F</url>
-    <content type="text"><![CDATA[摆线减速机Cycloidal drive减速比: (齿销数量 - 摆线轮数量) / 摆线轮数量 谐波减速机Harmonic drive减速比: (柔轮齿数 - 刚轮齿数) / 柔轮齿数]]></content>
+    <content type="text"><![CDATA[摆线减速机Cycloidal drive减速比: (齿销数量 - 摆线轮数量) / 摆线轮数量 谐波减速机Harmonic drive减速比: (柔轮齿数 - 刚轮齿数) / 柔轮齿数 建模摆线减速机Solidworks123456X = (R*cos(t))-(Rr*cos(t+arctan(sin((1-N)*t)/((R/EN)-cos((1-N)*t)))))-(E*cos(N*t)) Y = (-R*sin(t))+(Rr*sin(t+arctan(sin((1-N)*t)/((R/EN)-cos((1-N)*t)))))+(E*sin(N*t)) X : (-10/360)*(2*pi) Y : (190/360)*(2*pi) R = 10, E = 0.75, Rr = 1.5, N = 10 R: 转子半径E: 输入轴与转子中心的偏心距Rr: 齿销(轧辊)半径N: 齿销(轧辊)数量]]></content>
       <categories>
         <category>机械</category>
       </categories>

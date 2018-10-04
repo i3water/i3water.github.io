@@ -381,6 +381,11 @@
           
             <h1 id="摆线减速机"><a href="#摆线减速机" class="headerlink" title="摆线减速机"></a>摆线减速机</h1><p><a href="https://en.wikipedia.org/wiki/Cycloidal_drive" target="_blank" rel="noopener">Cycloidal drive</a><br>减速比: (齿销数量 - 摆线轮数量) / 摆线轮数量</p>
 <h1 id="谐波减速机"><a href="#谐波减速机" class="headerlink" title="谐波减速机"></a>谐波减速机</h1><p><a href="https://en.wikipedia.org/wiki/Harmonic_drive" target="_blank" rel="noopener">Harmonic drive</a><br>减速比: (柔轮齿数 - 刚轮齿数) / 柔轮齿数</p>
+<hr>
+<h1 id="建模"><a href="#建模" class="headerlink" title="建模"></a>建模</h1><h2 id="摆线减速机-1"><a href="#摆线减速机-1" class="headerlink" title="摆线减速机"></a>摆线减速机</h2><p>Solidworks<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">X = (R*cos(t))-(Rr*cos(t+arctan(sin((1-N)*t)/((R/EN)-cos((1-N)*t)))))-(E*cos(N*t))  </span><br><span class="line">Y = (-R*sin(t))+(Rr*sin(t+arctan(sin((1-N)*t)/((R/EN)-cos((1-N)*t)))))+(E*sin(N*t))  </span><br><span class="line">X : (-10/360)*(2*pi)  </span><br><span class="line">Y : (190/360)*(2*pi)  </span><br><span class="line"></span><br><span class="line">R = 10, E = 0.75, Rr = 1.5, N = 10</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>R: 转子半径<br>E: 输入轴与转子中心的偏心距<br>Rr: 齿销(轧辊)半径<br>N: 齿销(轧辊)数量  </p>
+</blockquote>
 
           
         

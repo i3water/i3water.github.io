@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="摆线减速机Cycloidal drive减速比: (齿销数量 - 摆线轮数量) / 摆线轮数量 谐波减速机Harmonic drive减速比: (柔轮齿数 - 刚轮齿数) / 柔轮齿数">
+<meta name="description" content="摆线减速机Cycloidal drive减速比: (齿销数量 - 摆线轮数量) / 摆线轮数量 谐波减速机Harmonic drive减速比: (柔轮齿数 - 刚轮齿数) / 柔轮齿数  建模摆线减速机Solidworks123456X = (R*cos(t))-(Rr*cos(t+arctan(sin((1-N)*t)/((R/EN)-cos((1-N)*t)))))-(E*cos(N*t))">
 <meta name="keywords" content="减速,机械">
 <meta property="og:type" content="article">
 <meta property="og:title" content="减速机">
 <meta property="og:url" content="http://yoursite.com/2018/10/04/减速机/index.html">
 <meta property="og:site_name" content="i3water">
-<meta property="og:description" content="摆线减速机Cycloidal drive减速比: (齿销数量 - 摆线轮数量) / 摆线轮数量 谐波减速机Harmonic drive减速比: (柔轮齿数 - 刚轮齿数) / 柔轮齿数">
+<meta property="og:description" content="摆线减速机Cycloidal drive减速比: (齿销数量 - 摆线轮数量) / 摆线轮数量 谐波减速机Harmonic drive减速比: (柔轮齿数 - 刚轮齿数) / 柔轮齿数  建模摆线减速机Solidworks123456X = (R*cos(t))-(Rr*cos(t+arctan(sin((1-N)*t)/((R/EN)-cos((1-N)*t)))))-(E*cos(N*t))">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-10-04T06:57:47.482Z">
+<meta property="og:updated_time" content="2018-10-04T08:20:50.895Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="减速机">
-<meta name="twitter:description" content="摆线减速机Cycloidal drive减速比: (齿销数量 - 摆线轮数量) / 摆线轮数量 谐波减速机Harmonic drive减速比: (柔轮齿数 - 刚轮齿数) / 柔轮齿数">
+<meta name="twitter:description" content="摆线减速机Cycloidal drive减速比: (齿销数量 - 摆线轮数量) / 摆线轮数量 谐波减速机Harmonic drive减速比: (柔轮齿数 - 刚轮齿数) / 柔轮齿数  建模摆线减速机Solidworks123456X = (R*cos(t))-(Rr*cos(t+arctan(sin((1-N)*t)/((R/EN)-cos((1-N)*t)))))-(E*cos(N*t))">
 
 
 
@@ -378,6 +378,11 @@
       
         <h1 id="摆线减速机"><a href="#摆线减速机" class="headerlink" title="摆线减速机"></a>摆线减速机</h1><p><a href="https://en.wikipedia.org/wiki/Cycloidal_drive" target="_blank" rel="noopener">Cycloidal drive</a><br>减速比: (齿销数量 - 摆线轮数量) / 摆线轮数量</p>
 <h1 id="谐波减速机"><a href="#谐波减速机" class="headerlink" title="谐波减速机"></a>谐波减速机</h1><p><a href="https://en.wikipedia.org/wiki/Harmonic_drive" target="_blank" rel="noopener">Harmonic drive</a><br>减速比: (柔轮齿数 - 刚轮齿数) / 柔轮齿数</p>
+<hr>
+<h1 id="建模"><a href="#建模" class="headerlink" title="建模"></a>建模</h1><h2 id="摆线减速机-1"><a href="#摆线减速机-1" class="headerlink" title="摆线减速机"></a>摆线减速机</h2><p>Solidworks<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">X = (R*cos(t))-(Rr*cos(t+arctan(sin((1-N)*t)/((R/EN)-cos((1-N)*t)))))-(E*cos(N*t))  </span><br><span class="line">Y = (-R*sin(t))+(Rr*sin(t+arctan(sin((1-N)*t)/((R/EN)-cos((1-N)*t)))))+(E*sin(N*t))  </span><br><span class="line">X : (-10/360)*(2*pi)  </span><br><span class="line">Y : (190/360)*(2*pi)  </span><br><span class="line"></span><br><span class="line">R = 10, E = 0.75, Rr = 1.5, N = 10</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>R: 转子半径<br>E: 输入轴与转子中心的偏心距<br>Rr: 齿销(轧辊)半径<br>N: 齿销(轧辊)数量  </p>
+</blockquote>
 
       
     </div>
@@ -610,7 +615,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#摆线减速机"><span class="nav-number">1.</span> <span class="nav-text">摆线减速机</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#谐波减速机"><span class="nav-number">2.</span> <span class="nav-text">谐波减速机</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#摆线减速机"><span class="nav-number">1.</span> <span class="nav-text">摆线减速机</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#谐波减速机"><span class="nav-number">2.</span> <span class="nav-text">谐波减速机</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#建模"><span class="nav-number">3.</span> <span class="nav-text">建模</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#摆线减速机-1"><span class="nav-number">3.1.</span> <span class="nav-text">摆线减速机</span></a></li></ol></li></ol></div>
             
 
           </div>
