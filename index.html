@@ -380,20 +380,26 @@
         
           
             <h1 id="项目使用硬件"><a href="#项目使用硬件" class="headerlink" title="项目使用硬件"></a>项目使用硬件</h1><ul>
-<li>Jetson Xavier NX<h1 id="项目需求"><a href="#项目需求" class="headerlink" title="项目需求"></a>项目需求</h1></li>
+<li>Jetson Xavier NX  </li>
+</ul>
+<h1 id="项目需求"><a href="#项目需求" class="headerlink" title="项目需求"></a>项目需求</h1><ul>
 <li>人脸检测</li>
 <li>人脸识别</li>
-<li>目标跟踪<h1 id="CUDA-cuDNN及系统安装"><a href="#CUDA-cuDNN及系统安装" class="headerlink" title="CUDA/cuDNN及系统安装"></a>CUDA/cuDNN及系统安装</h1>买的成品，出厂预装了最新的系统<br>查询确认CUDA/cuDNN<blockquote>
+<li>目标跟踪  </li>
+</ul>
+<h1 id="CUDA-cuDNN及系统安装"><a href="#CUDA-cuDNN及系统安装" class="headerlink" title="CUDA/cuDNN及系统安装"></a>CUDA/cuDNN及系统安装</h1><p>买的成品，出厂预装了最新的系统<br>查询确认CUDA/cuDNN</p>
+<blockquote>
 <p>nvcc -V</p>
 </blockquote>
-<h1 id="远程控制"><a href="#远程控制" class="headerlink" title="远程控制"></a>远程控制</h1>VNC配了几次也没配置上，直接安装了toDesk<h1 id="python-环境配置"><a href="#python-环境配置" class="headerlink" title="python 环境配置"></a>python 环境配置</h1><h2 id="miniforge-安装"><a href="#miniforge-安装" class="headerlink" title="miniforge 安装"></a>miniforge 安装</h2>Jetson(aarch64)暂时无法安装anaconda，使用miniforge替代。<br>miniforge release版本下载地址：<a href="https://github.com/conda-forge/miniforge/releases" target="_blank" rel="noopener">https://github.com/conda-forge/miniforge/releases</a><br><strong>我下载的版本为 Mambaforge-4.11.0-4-Linux-aarch64.sh</strong><br>下载后进行安装<blockquote>
+<h1 id="远程控制"><a href="#远程控制" class="headerlink" title="远程控制"></a>远程控制</h1><p>VNC配了几次也没配置上，直接安装了toDesk</p>
+<h1 id="python-环境配置"><a href="#python-环境配置" class="headerlink" title="python 环境配置"></a>python 环境配置</h1><h2 id="miniforge-安装"><a href="#miniforge-安装" class="headerlink" title="miniforge 安装"></a>miniforge 安装</h2><p>Jetson(aarch64)暂时无法安装anaconda，使用miniforge替代。<br>miniforge release版本下载地址：<a href="https://github.com/conda-forge/miniforge/releases" target="_blank" rel="noopener">https://github.com/conda-forge/miniforge/releases</a><br><strong>我下载的版本为 Mambaforge-4.11.0-4-Linux-aarch64.sh</strong><br>下载后进行安装</p>
+<blockquote>
 <p>sh Mambaforge-4.11.0-4-Linux-aarch64.sh</p>
 </blockquote>
-<h2 id="虚拟环境创建"><a href="#虚拟环境创建" class="headerlink" title="虚拟环境创建"></a>虚拟环境创建</h2><strong>yolov5 pytorch 在x86上已经支持python3.9，但是Jetson上测试遇到部分问题，安装3.6版本实测正常</strong><blockquote>
+<h2 id="虚拟环境创建"><a href="#虚拟环境创建" class="headerlink" title="虚拟环境创建"></a>虚拟环境创建</h2><p><strong>yolov5 pytorch 在x86上已经支持python3.9，但是Jetson上测试遇到部分问题，安装3.6版本实测正常</strong></p>
+<blockquote>
 <p>conda create -n pytorch python=3.6</p>
 </blockquote>
-</li>
-</ul>
 <p>后面所有安装均在虚拟环境中完成</p>
 <h1 id="torch-torchvision-安装"><a href="#torch-torchvision-安装" class="headerlink" title="torch/torchvision 安装"></a>torch/torchvision 安装</h1><h2 id="查询系统-JetPack-版本"><a href="#查询系统-JetPack-版本" class="headerlink" title="查询系统 JetPack 版本"></a>查询系统 JetPack 版本</h2><p>方法一</p>
 <blockquote>
