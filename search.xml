@@ -1,6 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[JetsonNX]]></title>
+    <url>%2F2022%2F03%2F08%2FJetsonNX%2F</url>
+    <content type="text"><![CDATA[项目使用硬件 Jetson Xavier NX项目需求 人脸检测 人脸识别 目标跟踪CUDA/cuDNN及系统安装买的成品，出厂预装了最新的系统查询确认CUDA/cuDNN nvcc -V 远程控制VNC配了几次也没配置上，直接安装了toDeskpython 环境配置miniforge 安装Jetson(aarch64)暂时无法安装anaconda，使用miniforge替代。miniforge release版本下载地址：https://github.com/conda-forge/miniforge/releases我下载的版本为 Mambaforge-4.11.0-4-Linux-aarch64.sh下载后进行安装 sh Mambaforge-4.11.0-4-Linux-aarch64.sh 虚拟环境创建yolov5 pytorch 在x86上已经支持python3.9，但是Jetson上测试遇到部分问题，安装3.6版本实测正常 conda create -n pytorch python=3.6 后面所有安装均在虚拟环境中完成 torch/torchvision 安装查询系统 JetPack 版本方法一 sudo systemctl restart jetson_stats.servicesudo jtop 6-INFO 方法二 cat /etc/nv_tegra_release torch 安装根据查询到的JetPack版本到官网下载对应的pytorch下载地址：https://forums.developer.nvidia.com/t/pytorch-for-jetson-version-1-10-now-available/72048我下载的版本为 v1.10.0安装 sudo apt-get install python3-pip libopenblas-base libopenmpi-devpip install Cythonpip install numpy torch-1.10.0-cp36-cp36m-linux_aarch64.whl torchvision 安装下载pytorch对应torchvision版本，具体对应信息为1234... 前面的史前版本省略了 ...PyTorch v1.8 - torchvision v0.9.0PyTorch v1.9 - torchvision v0.10.0PyTorch v1.10 - torchvision v0.11.1 我下载的为 v0.11.1安装 sudo apt-get install libjpeg-dev zlib1g-dev libpython3-dev libavcodec-dev libavformat-dev libswscale-devgit clone –branch v0.11.1 https://github.com/pytorch/vision torchvisioncd torchvisionexport BUILD_VERSION=0.11.1python setup.py install –user 环境验证12345678910111213import torchimport torchvisionprint(torchvision.__version__)print(torch.__version__)print('CUDA available: ' + str(torch.cuda.is_available()))print('cuDNN version: ' + str(torch.backends.cudnn.version()))a = torch.cuda.FloatTensor(2).zero_()print('Tensor a = ' + str(a))b = torch.randn(2).cuda()print('Tensor b = ' + str(b))c = a + bprint('Tensor c = ' + str(c)) yolov5 环境配置最开始原本打算用yolov5检测出人再进行识别，但是效果不是太理想。项目地址：https://github.com/ultralytics/yolov5我是直接下载最新的release版本，解压后修改requirements.txt文件注释掉torch和torchvision后进行安装 pip install -r requirements.txt 此时matplotlib安装可能会报版本错误，可以使用conda进行安装 conda install matplotlib 安装完成后进行测试 python detect.py OpenCV/Gstreamer 安装由于要使用网络摄像头，实测RTSP拉流延迟较高，无论PC还是Jetson。使用OpenCV开启Gstreamer安装脚本参考：https://github.com/AastaNV/JEP/blob/master/script/install_opencv4.5.0_Jetson.sh sh install_opencv4.5.0_Jetson.sh 我安装的 4.5.5 版本 注：安装后延迟有改善，由之前的5s延迟改善到0.5s左右，jtop中可以看到JetsonNX已开启NVDEC硬件解码。图像像素太大，RAM吃紧，fps只有10-15fps。 face_recognition 安装dlib 安装安装参考：https://forums.developer.nvidia.com/t/import-dlib-on-jetson-nx-got-illegal-instruction-core-dumped/193413/17实测19.21版本可以正常运行，19.23有点问题没有深究 sudo apt-get install python3-pipsudo apt-get install libjpeg-dev wget http://dlib.net/files/dlib-19.21.tar.bz2tar jxvf dlib-19.21.tar.bz2cd dlib-19.21/mkdir buildcd build/cmake ..cmake –build .cd ../sudo python setup.py install face_recognition 安装 sudo pip install face_recognition 人脸模型至此，项目需要的软件环境基本已经安装完成。人懒没有训练人脸模型，试了下face_recognition自带的人脸检测，人脸像素稍微变小后可能无法正常检测。找了狗东开源的人脸模型 https://github.com/JDAI-CV/FaceX-Zoo ，在3050TI的PC上检测iphone11拍摄的视频能达到30fps左右，合适像素下也能准确检测出人脸。只不过JetsonNX下同一视频进行人脸检测能达到10-15fps，加上人脸识别后约为8-10fps(加上RTSP流后RAM不足，fps还会降低)。最后找了一个轻量级模型 https://github.com/Linzaer/Ultra-Light-Fast-Generic-Face-Detector-1MB/blob/master/README_CN.md ，先压缩图像进行人脸检测，根据检测出的人脸bbox坐标换算后再原图中截取出图片进入人脸识别，最终在导入RTSP视频流1920x1080像素下进行检测/识别后约8-12fps。]]></content>
+      <categories>
+        <category>CV</category>
+      </categories>
+      <tags>
+        <tag>Nvidia</tag>
+        <tag>yolov5</tag>
+        <tag>OpenCV</tag>
+        <tag>face_recognition</tag>
+        <tag>CV</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[减速机]]></title>
     <url>%2F2018%2F10%2F04%2F%E5%87%8F%E9%80%9F%E6%9C%BA%2F</url>
     <content type="text"><![CDATA[摆线减速机Cycloidal drive减速比: (齿销数量 - 摆线轮数量) / 摆线轮数量 谐波减速机Harmonic drive减速比: (柔轮齿数 - 刚轮齿数) / 柔轮齿数 建模摆线减速机Solidworks123456X = (R*cos(t))-(Rr*cos(t+arctan(sin((1-N)*t)/((R/EN)-cos((1-N)*t)))))-(E*cos(N*t)) Y = (-R*sin(t))+(Rr*sin(t+arctan(sin((1-N)*t)/((R/EN)-cos((1-N)*t)))))+(E*sin(N*t)) X : (-10/360)*(2*pi) Y : (190/360)*(2*pi) R = 10, E = 0.75, Rr = 1.5, N = 10 R: 转子半径E: 输入轴与转子中心的偏心距Rr: 齿销(轧辊)半径N: 齿销(轧辊)数量]]></content>
